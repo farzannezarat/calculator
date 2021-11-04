@@ -1,46 +1,51 @@
-from my_function_operator import *
+from my_function import *
 
 
-operator = None
 a = 1
+result = 0
 while a == 1:
-    number_operator = input("enter first number,operator,second number: ")
-    for m in operators:
-        w = operators[m]
-        len_n = len(number_operator.split(w))
-        if len_n > 1:
-            operator = number_operator.split(w)
-            if w == '+':
-                z = int(operator[0])
-                x = int(operator[-1])
-                print(plus(z, x))
+    number_operator1 = input("enter first number,operator,second number: ").split(',')
+    try:
+        len_n = len(number_operator1)
+        if len_n > 1 ^ len_n < 3:
+            number_operator = number_operator1[1]
+            if number_operator == '+':
+                z = int(number_operator1[0])
+                x = int(number_operator1[-1])
+                result = plus(z, x)
+                print(result)
 
-            elif w == '-':
-                z = int(operator[0])
-                x = int(operator[-1])
-                print(minus(z, x))
+            elif number_operator == '-':
+                z = int(number_operator1[0])
+                x = int(number_operator1[-1])
+                result = minus(z, x)
+                print(result)
 
-            elif w == '/':
-                z = int(operator[0])
-                x = int(operator[-1])
-                print(division(z, x))
+            elif number_operator == '/':
+                z = int(number_operator1[0])
+                x = int(number_operator1[-1])
+                result = division(z, x)
+                print(result)
 
-            elif w == 'x':
-                z = int(operator[0])
-                x = int(operator[-1])
-                print(multiplication(z, x))
+            elif number_operator == 'x':
+                z = int(number_operator1[0])
+                x = int(number_operator1[-1])
+                result = multiplication(z, x)
+                print(result)
 
-            elif w == 'xx':
-                z = int(operator[0])
-                x = int(operator[-1])
-                print(power(z, x))
+            elif number_operator == 'xx':
+                z = int(number_operator1[0])
+                x = int(number_operator1[-1])
+                result = power(z, x)
+                print(result)
 
-            elif w == '//':
-                z = int(operator[0])
-                x = int(operator[-1])
-                print(square_root(z, x))
-            else:
-                print('enter a valid format and operator')
+            elif number_operator == '//':
+                z = int(number_operator1[0])
+                x = int(number_operator1[-1])
+                result = square_root(z, x)
+                print(result)
+    except IndexError:
+        print('enter a valid format and operator')
 
     exit_or_continue = input('for continue press c and for exit press x or enter :')
     if exit_or_continue == 'c':
